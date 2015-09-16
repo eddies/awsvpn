@@ -8,6 +8,11 @@ Licensed under the BSD 3 Clauses License (http://opensource.org/licenses/BSD-3-C
 
 Distributed on an "AS IS" basis without warranties or conditions of any kind, either express or implied.
 
+Known Issue
+-----------
+
+Modify the startup script to adapt to the AMI ID available in your region
+
 How To ?
 --------
   
@@ -19,23 +24,19 @@ Start a private VPN server in the cloud.
 
 THESE SCRIPTS MUST BE MODIFIED TO RUN IN YOUR ENVIRONMENT - PLEASE READ BELOW
 
-These local scripts have the following prerequisites
-- AWS EC2 Command Line API is installed (http://aws.amazon.com/developertools/351)
-- EC2_HOME environment variable points to command line tools
-- EC2_URL environment variables contains AWS endpoint (http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region)
-- AWS_ACCESS_KEY environment variable contains your AWS access key
-- AWS_SECRET_KEY environment variable contains your AWS secret key
+The vpn-ec2-start script requires AWS CLI command line interface.
+- Intallation instructions : http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html
+- Configuration Instructions : http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
 
-Here is an example of my $HOME/.profile
+Here is an example of my $HOME/.aws/config
 ```bash
-export JAVA_HOME=`/usr/libexec/java_home`
-export EC2_HOME=/Users/sst/Projects/aws/ec2-api-tools-latest
-export AWS_ACCESS_KEY=<access key>
-export AWS_SECRET_KEY=<secret key>
-export EC2_URL=http://ec2.eu-west-1.amazonaws.com
+[default]
+aws_access_key_id = AK..OQ
+aws_secret_access_key = gj...T8
+region = eu-west-1
 ```
 
-You also need to have 
+You also need the following 
 
 - an account on AWS EC2 :-)
 - to define a ssh key pair in AWS console (or through the command line)
